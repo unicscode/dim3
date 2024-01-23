@@ -15,3 +15,8 @@
 &:disabled {
   --background-color: var(--ds-color-secondary-background);
 }
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+}

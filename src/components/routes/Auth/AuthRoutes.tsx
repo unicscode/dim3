@@ -1,8 +1,6 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
-import { NavBar } from '../../organisms';
-
-import styles from './AuthRoutes.module.css';
+import styles from "./AuthRoutes.module.css";
 
 export function AuthRoutes() {
   return (

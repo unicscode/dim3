@@ -3,24 +3,34 @@ import {
   RouterProvider,
   Route,
   createRoutesFromElements,
-} from 'react-router-dom';
+} from "react-router-dom";
+import { SnackbarProvider } from "notistack";
 
-import { MainRoutes, AuthRoutes } from './routes';
-import { HomePage, LoginPage } from './pages';
+import { MainRoutes, AuthRoutes } from "./routes";
+import { HomePage, LoginPage } from "./pages";
+import { ErrorBoundaryLayout } from "./atoms/ErrorBoundaryLayout/ErrorBoundaryLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<MainRoutes />}>
-      <Route path='/' element={<HomePage />} />
-      <Route element={<AuthRoutes />}>
-        <Route path='login' element={<LoginPage />} />
+    <Route element={<ErrorBoundaryLayout />}>
+      <Route element={<MainRoutes />}>
+        <Route path="/" element={<HomePage />} />
+
+        <Route element={<AuthRoutes />}>
+          <Route path="login" element={<LoginPage />} />
+        </Route>
       </Route>
     </Route>
   )
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <SnackbarProvider />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

@@ -7,7 +7,9 @@ type Props = React.FieldsetHTMLAttributes<HTMLFieldSetElement> & {
 };
 
 export function Fieldset({ children, className, appearance }: Props) {
-  <fieldset className={classNames(styles.root, className)}>
-    <div className={appearance && styles[appearance]}>{children}</div>
-  </fieldset>;
+  return (
+    <fieldset className={classNames(styles.root, className)}>
+      <div className={appearance && styles[appearance]}>{children}</div>
+    </fieldset>
+  );
 }

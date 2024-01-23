@@ -1,3 +1,8 @@
+import { FormInfo, LoginForm } from "./LoginForm/LoginForm";
+
 export function LoginPage() {
-  return <div>Login</div>;
+  function submitForm(data: FormInfo) {
+    console.log(data);
+  }
+  return <LoginForm submit={submitForm} />;
 }

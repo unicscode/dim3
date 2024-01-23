@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import { NavBar } from "components/organisms";
 
-import styles from './MainRoutes.module.css';
-import { NavBar } from '../../organisms';
+import styles from "./MainRoutes.module.css";
 
 export function MainRoutes() {
   return (

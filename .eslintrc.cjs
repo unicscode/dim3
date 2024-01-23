@@ -27,5 +27,9 @@ module.exports = {
     "react/state-in-constructor": 0,
     "react/button-has-type": 0,
     "react/jsx-props-no-spreading": 0,
+    "prettier/prettier": ["error", { singleQuote: false }],
+    "import/no-extraneous-dependencies": 0,
+    "react/require-default-props": 0,
+    "react/jsx-no-bind": 0,
   },
 };

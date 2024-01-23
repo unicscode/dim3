@@ -15,11 +15,16 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ) => {
     return (
       <div>
-        {label && <label htmlFor={id}>{label}</label>}
+        {label && (
+          <label htmlFor={id} className={styles.label}>
+            {label}
+          </label>
+        )}
         <input
           className={classNames(className, styles.root)}
           ref={forwardedRef}
           aria-label={ariaLabel ?? label}
+          id={id}
           {...props}
         />
       </div>
