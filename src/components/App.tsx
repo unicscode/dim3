@@ -4,6 +4,7 @@ import {
   Route,
   createRoutesFromElements,
 } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { SnackbarProvider } from "notistack";
 
 import { MainRoutes, AuthRoutes } from "./routes";
@@ -11,6 +12,7 @@ import { HomePage, LoginPage } from "./pages";
 import { ErrorBoundaryLayout } from "./atoms/ErrorBoundaryLayout/ErrorBoundaryLayout";
 import { AuthenticationProvider } from "./providers/Authentication";
 import { ProtectedRoute } from "./routes/Auth/ProtectedRoute";
+import { queryClient } from "../react-query";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,10 +32,13 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <AuthenticationProvider>
-      <SnackbarProvider />
-      <RouterProvider router={router} />
-    </AuthenticationProvider>
+    <SnackbarProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthenticationProvider>
+          <RouterProvider router={router} />
+        </AuthenticationProvider>
+      </QueryClientProvider>
+    </SnackbarProvider>
   );
 }
 

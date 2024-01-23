@@ -8,12 +8,13 @@ type AuthHookReturnType = {
   logout: () => void;
 };
 
-export const useAuth = (): AuthHookReturnType => {
+export const useUser = (): AuthHookReturnType => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [token, setToken] = useState<string | null>(null);
 
   const checkAuthentication = () => {
     const storedToken = localStorage.getItem(TOKEN_KEY);
+
     if (storedToken) {
       setIsAuthenticated(true);
       setToken(storedToken);
