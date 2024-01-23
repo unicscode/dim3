@@ -24,7 +24,7 @@ export const useAuth = (): AuthHookReturnType => {
   };
 
   const logout = () => {
-    localStorage.removeItem("TOKEN_KEY");
+    localStorage.removeItem(TOKEN_KEY);
     setIsAuthenticated(false);
     setToken(null);
   };
