@@ -13,6 +13,7 @@ import { ErrorBoundaryLayout } from "./atoms/ErrorBoundaryLayout/ErrorBoundaryLa
 import { AuthenticationProvider } from "./providers/Authentication";
 import { ProtectedRoute } from "./routes/Auth/ProtectedRoute";
 import { queryClient } from "../react-query";
+import { PatientDetails } from "./pages/PatientDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +21,8 @@ const router = createBrowserRouter(
       <Route element={<MainRoutes />}>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/patients/:id" element={<PatientDetails />} />
         </Route>
-
         <Route element={<AuthRoutes />}>
           <Route path="login" element={<LoginPage />} />
         </Route>
